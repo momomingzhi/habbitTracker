@@ -1,5 +1,6 @@
 import React from 'react';
 import './TodoListTemplate.css';
+import './SelectTerm.css';
 
 const TodoListTemplate = ({form, children}) => {
   return (
@@ -28,8 +29,10 @@ const TodoListTemplate = ({form, children}) => {
           Action
       </div>
       <div className="habbitTitle input">
-      <input name="cycle" type="text" size="50" />
+      <input name="action" type="text" size="50" />
       </div>
+      <input className="btn" type="button" name="btn1" value="다음" onClick="location.href='./SelectTerm.js'"></input>
+      <button type="button" onClick="alert('안녕안녕')">안녕</button>
      
           
      

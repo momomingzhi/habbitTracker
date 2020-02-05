@@ -25,6 +25,11 @@
   .input{
     padding: 3rem;
   }
+  .btn{
+    padding: 1rem;
+    margin-left: 270px;
+
+  }
   .form-wrapper {
     padding: 3rem;
     border-bottom: 1px solid #ffffff;

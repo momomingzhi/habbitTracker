@@ -1,17 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Title.css';
 import './Reminder.css';
+
 import SelectTerm from './SelectTerm';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Log from './Log.js';
 
-const Reminder=({history})=>{
-    
+const Reminder=({setReminder,history})=>{
+    //const [reminder,setReminder]=useState('');
+    const onChangeReminder= (e) =>{
+        setReminder(e.target.value);
+        
+    }
 
     return(
         
-        <main className="todo-list-template">
+        <main className="todo-list-template"> 
       <div className="title">
         습관 기록 하기
+        
       </div>
       <div className="habbitTitle">
           Reminder
@@ -19,8 +26,8 @@ const Reminder=({history})=>{
       {/* <section className="form-wrapper">
         {form}
       </section> */}
-      <div className="habbitTitle input">
-        <input name="how" type="text" size="50" />
+      <div className="habbitTitle input"> 
+    <input name="how" type="text" size="50" onChange={onChangeReminder} />
       </div>
       
      
@@ -51,10 +58,17 @@ const Reminder=({history})=>{
         
           
             {/* <Route path="/Term" component={SelectTerm}/> */}
-      <input className="btn" type="button" name="btn1" value="이전" onClick={()=>{history.push('/Term')}}></input>
-      <input className="btn" type="button" name="btn1" value="다음" onClick={()=>{history.push('/Success')}}></input>
+            <Link to="/Log">
+                <input className="btn" type="button" name="btn1" value="이전" ></input>
+            </Link>    
+
+            <Link to="/Success">
+                <input className="btn" type="button" name="btn1" value="다음" ></input>
+            </Link>
+      
       {/* <button type="button" onClick="alert('안녕안녕')">안녕</button> */}
       </main>
+      
     );
 
       

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React,{ useState } from 'react';
 import './SelectTerm.css';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // const SelectTerm = ({value, onChange, onCreate, onKeyPress}) => {
 //     return (
 //       <div className="form">
@@ -12,8 +12,15 @@ import './SelectTerm.css';
 //     );
 //   };
   
-const SelectTerm =({history})=>{
-    
+const SelectTerm =({setFrom, setTo, history})=>{
+        // const [from,setFrom]=useState('');
+        // const [to,setTo]=useState('');
+        const onChangeFrom= (e) =>{
+            setFrom(e.target.value);
+        }
+        const onChangeTo= (e) =>{
+            setTo(e.target.value);
+        }
         return(
             <main className="todo-list-template">
             <div className="title">
@@ -27,18 +34,23 @@ const SelectTerm =({history})=>{
             </section> */}
             <div className="habbitTitle input">
             
-            <input type="date"  min="2020-01-26" max="2020-12-31"></input>
+            <input type="date"  min="2020-01-26" max="2020-12-31"  onChange={onChangeFrom}></input>
             
             </div>
             <div className="habbitTitle">
                 To
             </div>
-            <div className="habbitTitle input">
-            <input type="date"  min="2020-01-26" max="2020-12-31"></input>
+            <div className="habbitTitle input"> 
+            <input type="date"  min="2020-01-26" max="2020-12-31" onChange={onChangeTo}></input>
       
             </div>
-            <input className="btn" type="button" name="btn1" value="이전" onClick={()=>{history.push('/Title')}}></input>
-            <input className="btn" type="button" name="btn1" value="다음" onClick={()=>{history.push('/Log')}}></input>
+            <Link to="/Title">
+                <input className="btn" type="button" name="btn1" value="이전" onClick={()=>{}}></input>
+            </Link>
+            <Link to="/Log">
+                <input className="btn" type="button" name="btn1" value="다음" onClick={()=>{}}></input>
+            </Link>
+            
             {/* <button type="button" onClick="alert('안녕안녕')">안녕</button> */}
             </main>
         );
